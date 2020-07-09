@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Add New Cupcake</h2>
+  <form id="new-cupcake-form">
+    {{form.hidden_tag()}} {% for field in form if field.widget.input_type !=
+    'hidden'%}
+      <div class="form-group">
+        {{field.label(class_='form-label')}} {{field(class_='form-control')}}
+      </div>
+
+      {% for error in field.errors%}
+      <span class="text-danger">{{ error }}</span>
+      {%endfor%}
+    {%endfor%}
+    <button type="submit" class="btn btn-primary">Add Cupcake</button>
+  </form>
+</div>
